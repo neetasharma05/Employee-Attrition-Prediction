@@ -4,7 +4,8 @@ Machine Learning project to predict employee attrition
 # Employee Attrition Prediction
 
 ## 📌 Project Overview
-This project uses machine learning techniques to predict whether an employee is likely to leave the company (attrition). It helps organizations take preventive actions and improve employee retention.
+This project uses machine learning techniques to predict whether an employee is likely to leave the company (attrition). It helps organizations take preventive actions and improve employee retention.This project builds a machine learning system to predict which employees are likely to leave, enabling HR teams to take proactive steps.
+
 
 ---
 
@@ -30,6 +31,19 @@ The dataset used in this project is the **HR Employee Attrition Dataset**.
 - Matplotlib, Seaborn  
 
 ---
+
+## Pipeline Steps:
+Data Loading & Overview
+Data Cleaning
+Feature Engineering
+Data Preprocessing
+Exploratory Data Analysis (EDA)
+Model Training & Comparison
+Hyperparameter Tuning
+Model Evaluation
+Attrition Probability Prediction
+Leaderboard Integration
+Encryption Feature
 
 ## 🤖 Machine Learning Models Used
 - Random Forest  
