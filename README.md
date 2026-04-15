@@ -1,5 +1,5 @@
 # Employee Attrition Prediction System
-Machine Learning project to predict employee attrition
+Machine Learning project to predict employee attrition 
 
 # Employee Attrition Prediction
 
