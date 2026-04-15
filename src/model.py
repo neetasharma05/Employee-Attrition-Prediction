@@ -44,3 +44,23 @@ def train_models(X_train, X_test, y_train, y_test, X_train_scaled=None, X_test_s
         }
 
     return results
+
+
+
+
+
+
+
+from src.leaderboard import save_leaderboard
+from src.encryption import generate_key, encrypt_file
+
+# Save leaderboard
+df = save_leaderboard(results)
+
+# Encrypt leaderboard
+key = generate_key()
+encrypt_file(
+    input_path="leaderboard/scores.csv",
+    output_path="leaderboard/scores.enc",
+    key=key
+)
