@@ -1,17 +1,27 @@
-import os
-import csv
 import pandas as pd
+import os
 
-def save_leaderboard(results):
+def update_leaderboard(name, accuracy, f1_score):
     os.makedirs('leaderboard', exist_ok=True)
-    scores_path = 'leaderboard/scores.csv'
+    path = 'leaderboard/scores.csv'
 
-    with open(scores_path, 'w', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerow(['Model Name', 'Accuracy (%)', 'F1-Score (%)'])
+    # Load existing data
+    if os.path.exists(path):
+        df = pd.read_csv(path)
+    else:
+        df = pd.DataFrame(columns=["Name", "Accuracy (%)", "F1-Score (%)"])
 
-        for name, res in results.items():
-            writer.writerow([name, res['Accuracy'], res['F1-Score']])
+    # Add new entry
+    new_entry = pd.DataFrame([[name, accuracy, f1_score]],
+                             columns=["Name", "Accuracy (%)", "F1-Score (%)"])
 
-    print(f'Leaderboard saved at: {scores_path}')
-    return scores_path
+    df = pd.concat([df, new_entry], ignore_index=True)
+
+    # Sort leaderboard
+    df = df.sort_values(by="Accuracy (%)", ascending=False)
+
+    # Save back
+    df.to_csv(path, index=False)
+
+    print("✅ Leaderboard Updated!")
+    return df
